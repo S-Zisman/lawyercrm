@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5D CRM | Полина Зисман</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .main-container {
+      min-height: 100vh;
+      background: var(--bg-light);
+      padding: 2rem;
+    }
+
+    .welcome-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .welcome-title {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .welcome-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      padding: 1.5rem;
+      background: var(--bg-light);
+      border-radius: 12px;
+      border: 2px solid var(--border);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .logout-btn {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    <div class="welcome-card fade-in">
+
+      <div class="success-icon">🎉</div>
+
+      <h1 class="welcome-title">Добро пожаловать в 5D CRM!</h1>
+
+      <p class="welcome-subtitle">
+        Система успешно запущена и готова к работе
+      </p>
+
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-title">1D - Защита</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Домашнее насилие, охранные ордера, визы</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👨‍👩‍👧‍👦</div>
+          <div class="feature-title">2D - Семья</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Разводы, опека, алименты</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏡</div>
+          <div class="feature-title">3D - Имущество</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Завещания, наследство, недвижимость</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💼</div>
+          <div class="feature-title">4D - Бизнес</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Трудовые споры, контракты</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🕊️</div>
+          <div class="feature-title">5D - Медиация</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Внесудебные решения, переговоры</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💜</div>
+          <div class="feature-title">Волонтерство</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Организация "Эфрат"</p>
+        </div>
+
+      </div>
+
+      <div class="logout-btn">
+        <button class="btn btn-primary" onclick="logout()">
+          Выйти
+        </button>
+      </div>
+
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+        <h3 style="margin-bottom: 1rem;">Статус системы</h3>
+        <div style="text-align: left; max-width: 500px; margin: 0 auto;">
+          <p>✅ База данных: <strong>Подключена</strong></p>
+          <p>✅ Таблиц создано: <strong>16</strong></p>
+          <p>✅ Категорий дел: <strong>45+</strong></p>
+          <p>✅ Пользователей: <strong>1 (Полина Зисман)</strong></p>
+          <p>✅ Налоговая система: <strong>עוסק מורשה</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Check if user is logged in
+    const user = localStorage.getItem('user');
+    if (!user) {
+      window.location.href = 'auth.html';
+    }
+
+    function logout() {
+      localStorage.removeItem('user');
+      localStorage.removeItem('userId');
+      window.location.href = 'auth.html';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,447 @@
+/* ==========================================
+   5D CRM для адвоката Полины Зисман
+   Стили с фиолетовой палитрой
+   ========================================== */
+
+/* ==========================================
+   CSS Variables (Цветовая палитра)
+   ========================================== */
+
+:root {
+  /* Основная палитра */
+  --primary: #8B5CF6;        /* Фиолетовый */
+  --primary-light: #C4B5FD;  /* Светло-фиолетовый */
+  --primary-dark: #6D28D9;   /* Темно-фиолетовый */
+
+  --secondary: #EC4899;      /* Розовый */
+  --secondary-light: #F9A8D4;/* Светло-розовый */
+
+  --accent-gold: #F6AD55;    /* Золотой */
+
+  /* 5D-измерения */
+  --1d-protection: #EF4444;  /* Красный */
+  --2d-family: #F59E0B;      /* Оранжевый */
+  --3d-property: #10B981;    /* Изумрудный */
+  --4d-business: #3B82F6;    /* Синий */
+  --5d-future: #8B5CF6;      /* Фиолетовый */
+
+  /* Семантические цвета */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #60A5FA;
+
+  /* Фоны и текст */
+  --bg-light: #FDF8FF;       /* Очень светлый фиолетовый */
+  --bg-card: #FFFFFF;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --border: #E9D5FF;         /* Светло-фиолетовая граница */
+
+  /* Тени */
+  --shadow-sm: 0 1px 2px 0 rgba(139, 92, 246, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(139, 92, 246, 0.1), 0 2px 4px -1px rgba(139, 92, 246, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(139, 92, 246, 0.1), 0 4px 6px -2px rgba(139, 92, 246, 0.05);
+
+  /* Шрифты */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-hebrew: 'Heebo', 'Assistant', sans-serif;
+}
+
+/* ==========================================
+   Reset & Base Styles
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Поддержка иврита (RTL) */
+[dir="rtl"] {
+  font-family: var(--font-hebrew);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  outline: none;
+}
+
+/* ==========================================
+   Typography
+   ========================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+h1 { font-size: 1.875rem; }  /* 30px */
+h2 { font-size: 1.5rem; }    /* 24px */
+h3 { font-size: 1.25rem; }   /* 20px */
+h4 { font-size: 1.125rem; }  /* 18px */
+h5 { font-size: 1rem; }      /* 16px */
+h6 { font-size: 0.875rem; }  /* 14px */
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ==========================================
+   Auth Page
+   ========================================== */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-light) 100%);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-placeholder {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.auth-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.auth-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.auth-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  transition: all 0.3s;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* ==========================================
+   Buttons
+   ========================================== */
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ==========================================
+   Spinner (Loading)
+   ========================================== */
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   Error Message
+   ========================================== */
+
+.error-message {
+  padding: 0.75rem 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  color: var(--danger);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ==========================================
+   Language Switcher
+   ========================================== */
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.lang-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.lang-btn:hover {
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--primary);
+}
+
+.lang-btn.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.lang-divider {
+  color: var(--border);
+}
+
+/* ==========================================
+   Auth Footer
+   ========================================== */
+
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.auth-footer p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================
+   RTL Support
+   ========================================== */
+
+[dir="rtl"] .auth-form {
+  text-align: right;
+}
+
+[dir="rtl"] .form-label {
+  text-align: right;
+}
+
+[dir="rtl"] .language-switcher {
+  direction: ltr;
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+
+@media (max-width: 640px) {
+  .auth-page {
+    padding: 1rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .auth-title {
+    font-size: 1.25rem;
+  }
+
+  .logo-placeholder {
+    width: 64px;
+    height: 64px;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+.hidden {
+  display: none;
+}
+
+/* ==========================================
+   Animations
+   ========================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
