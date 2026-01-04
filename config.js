@@ -37,7 +37,7 @@ const CONFIG = {
     { limit: Infinity, rate: 0.50 }
   ],
 
-  // 5D Dimensions
+  // 5D Dimensions + Other
   DIMENSIONS: {
     '1D': {
       name_ru: 'Защита и безопасность',
@@ -68,6 +68,12 @@ const CONFIG = {
       name_he: 'עתיד והסכמה',
       icon: '🕊️',
       color: '#8B5CF6'
+    },
+    'OTHER': {
+      name_ru: 'Другое',
+      name_he: 'אחר',
+      icon: '📂',
+      color: '#6B7280'
     }
   },
 

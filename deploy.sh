@@ -13,10 +13,12 @@ cd "/Users/mymac/TRAINING/ВАЙБКОДИНГ (ДАМИР ХАЛИЛОВ)/MY PR
 echo "📦 Creating archive..."
 tar -czf lawyercrm.tar.gz \
   auth.html \
+  index.html \
   auth.js \
   config.js \
   styles.css \
   db-config.php \
+  db-config.local.example.php \
   init-db.php \
   create-user.php \
   api/ \
