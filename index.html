@@ -142,17 +142,8 @@
   </div>
 
   <script>
-    // Check if user is logged in
-    const user = localStorage.getItem('user');
-    if (!user) {
-      window.location.href = 'auth.html';
-    }
-
-    function logout() {
-      localStorage.removeItem('user');
-      localStorage.removeItem('userId');
-      window.location.href = 'auth.html';
-    }
+    // Redirect to dashboard
+    window.location.href = 'dashboard.html';
   </script>
 
 </body>
