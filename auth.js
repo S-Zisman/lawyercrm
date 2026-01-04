@@ -60,7 +60,7 @@ async function handleLogin(e) {
       localStorage.setItem('userId', data.user.id);
 
       // Redirect to dashboard
-      window.location.href = 'index.html';
+      window.location.href = 'dashboard.html';
     } else {
       // Show error
       errorMessage.textContent = data.error || 'Неверный email или пароль';

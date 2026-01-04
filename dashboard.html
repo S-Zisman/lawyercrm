@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дашборд | 5D CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <span class="logo">💜</span>
+        <span class="logo-text">5D CRM</span>
+      </div>
+      <div class="navbar-menu">
+        <a href="dashboard.html" class="nav-link active">Дашборд</a>
+        <a href="#" class="nav-link">Клиентки</a>
+        <a href="#" class="nav-link">Дела</a>
+        <a href="#" class="nav-link">Календарь</a>
+        <a href="#" class="nav-link">Финансы</a>
+      </div>
+      <div class="navbar-user">
+        <span id="userName"></span>
+        <button class="btn btn-sm" onclick="logout()">Выход</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Welcome Section -->
+      <div class="page-header">
+        <h1>Добро пожаловать, <span id="userNameTitle"></span>!</h1>
+        <p class="text-secondary">Обзор вашей юридической практики</p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+
+        <!-- Total Clients -->
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--secondary-light); color: var(--secondary);">👥</div>
+          <div class="stat-content">
+            <div class="stat-label">Всего клиенток</div>
+            <div class="stat-value" id="totalClients">-</div>
+          </div>
+        </div>
+
+        <!-- Active Cases -->
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--primary-light); color: var(--primary);">⚖️</div>
+          <div class="stat-content">
+            <div class="stat-label">Активные дела</div>
+            <div class="stat-value" id="activeCases">-</div>
+          </div>
+        </div>
+
+        <!-- Monthly Revenue -->
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #D1FAE5; color: var(--success);">💰</div>
+          <div class="stat-content">
+            <div class="stat-label">Доход (месяц)</div>
+            <div class="stat-value" id="monthlyRevenue">-</div>
+          </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #DBEAFE; color: var(--info);">📅</div>
+          <div class="stat-content">
+            <div class="stat-label">События (неделя)</div>
+            <div class="stat-value" id="upcomingEvents">-</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 5D Dimensions Grid -->
+      <div class="section-header">
+        <h2>Дела по измерениям 5D</h2>
+      </div>
+
+      <div class="dimensions-grid">
+
+        <!-- 1D - Protection -->
+        <div class="dimension-card" style="border-left: 4px solid var(--1d-protection);">
+          <div class="dimension-header">
+            <div class="dimension-icon">🛡️</div>
+            <div>
+              <div class="dimension-title">1D - Защита</div>
+              <div class="dimension-subtitle">Домашнее насилие, охранные ордера</div>
+            </div>
+          </div>
+          <div class="dimension-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="cases1D">0</span>
+              <span class="stat-text">дел</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="orders1D">0</span>
+              <span class="stat-text">ордеров</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2D - Family -->
+        <div class="dimension-card" style="border-left: 4px solid var(--2d-family);">
+          <div class="dimension-header">
+            <div class="dimension-icon">👨‍👩‍👧‍👦</div>
+            <div>
+              <div class="dimension-title">2D - Семья</div>
+              <div class="dimension-subtitle">Разводы, опека, алименты</div>
+            </div>
+          </div>
+          <div class="dimension-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="cases2D">0</span>
+              <span class="stat-text">дел</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D - Property -->
+        <div class="dimension-card" style="border-left: 4px solid var(--3d-property);">
+          <div class="dimension-header">
+            <div class="dimension-icon">🏡</div>
+            <div>
+              <div class="dimension-title">3D - Имущество</div>
+              <div class="dimension-subtitle">Завещания, наследство</div>
+            </div>
+          </div>
+          <div class="dimension-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="cases3D">0</span>
+              <span class="stat-text">дел</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4D - Business -->
+        <div class="dimension-card" style="border-left: 4px solid var(--4d-business);">
+          <div class="dimension-header">
+            <div class="dimension-icon">💼</div>
+            <div>
+              <div class="dimension-title">4D - Бизнес</div>
+              <div class="dimension-subtitle">Трудовые споры, контракты</div>
+            </div>
+          </div>
+          <div class="dimension-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="cases4D">0</span>
+              <span class="stat-text">дел</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5D - Mediation -->
+        <div class="dimension-card" style="border-left: 4px solid var(--5d-future);">
+          <div class="dimension-header">
+            <div class="dimension-icon">🕊️</div>
+            <div>
+              <div class="dimension-title">5D - Медиация</div>
+              <div class="dimension-subtitle">Внесудебные решения</div>
+            </div>
+          </div>
+          <div class="dimension-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="cases5D">0</span>
+              <span class="stat-text">дел</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="sessions5D">0</span>
+              <span class="stat-text">сессий</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- OTHER - Other Cases -->
+        <div class="dimension-card" style="border-left: 4px solid #6B7280;">
+          <div class="dimension-header">
+            <div class="dimension-icon">📂</div>
+            <div>
+              <div class="dimension-title">Другое</div>
+              <div class="dimension-subtitle">Консультации, нотариат</div>
+            </div>
+          </div>
+          <div class="dimension-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="casesOTHER">0</span>
+              <span class="stat-text">дел</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Recent Activity & Deadlines -->
+      <div class="two-column-grid">
+
+        <!-- Recent Activity -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Последняя активность</h3>
+          </div>
+          <div class="card-body" id="recentActivity">
+            <div class="empty-state">
+              <p>Пока нет активности</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Deadlines -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Ближайшие дедлайны</h3>
+          </div>
+          <div class="card-body" id="upcomingDeadlines">
+            <div class="empty-state">
+              <p>Нет дедлайнов</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="dashboard.js"></script>
+
+</body>
+</html>
