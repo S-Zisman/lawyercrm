@@ -14,7 +14,9 @@ echo "📦 Creating archive..."
 tar -czf lawyercrm.tar.gz \
   auth.html \
   index.html \
+  dashboard.html \
   auth.js \
+  dashboard.js \
   config.js \
   styles.css \
   db-config.php \
